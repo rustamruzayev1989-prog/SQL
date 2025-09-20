@@ -1,0 +1,2 @@
+ALTER TABLE Employees
+ALTER COLUMN Salary FLOAT;
