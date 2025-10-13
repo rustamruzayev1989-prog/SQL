@@ -1,0 +1,3 @@
+SELECT *
+FROM Продукты
+WHERE Цена BETWEEN 50 AND 100;
