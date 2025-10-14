@@ -1,0 +1,4 @@
+SELECT *
+FROM Товары
+ORDER BY Цена DESC
+LIMIT 10;
