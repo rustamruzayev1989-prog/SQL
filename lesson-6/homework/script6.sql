@@ -1,4 +1,0 @@
-SELECT *
-FROM section1
-ORDER BY id DESC
-LIMIT 1;
