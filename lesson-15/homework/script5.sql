@@ -1,5 +1,6 @@
-SELECT c.customer_id, c.name
-FROM customers c
-LEFT JOIN orders o
-  ON c.customer_id = o.customer_id
-WHERE o.customer_id IS NULL;
+SELECT p.id, p.product_name, p.price, p.category_id
+FROM products p
+WHERE p.price = (
+    SELECT MAX(p2.price)
+    FROM products p2
+    WHERE p2.category_id = p.category_id
