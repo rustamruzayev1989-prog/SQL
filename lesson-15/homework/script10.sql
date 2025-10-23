@@ -1,8 +1,9 @@
-SELECT p1.*
-FROM products p1
-WHERE 2 = (
-    SELECT COUNT(DISTINCT p2.price)
-    FROM products p2
-    WHERE p2.category_id = p1.category_id
-      AND p2.price > p1.price
-);
+SELECT e.id, e.name, e.salary, e.department_id
+FROM employees e
+WHERE e.salary > (SELECT AVG(salary) FROM employees)
+  AND e.salary < (
+      SELECT MAX(e2.salary)
+      FROM employees e2
+      WHERE e2.department_id = e.department_id
+  );
+
