@@ -1,11 +1,7 @@
-SELECT e.id, e.name, e.salary, d.department_name
+SELECT e.id, e.name, e.salary, e.department_id
 FROM employees e
-JOIN departments d
-  ON e.department_id = d.id
-WHERE e.department_id = (
-    SELECT department_id
-    FROM employees
-    GROUP BY department_id
-    ORDER BY AVG(salary) DESC
-    LIMIT 1
+WHERE e.salary = (
+    SELECT MAX(e2.salary)
+    FROM employees e2
+    WHERE e2.department_id = e.department_id
 );
